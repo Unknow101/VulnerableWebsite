@@ -4,6 +4,17 @@
 
  //TODO
 
+
+## Vulnerabilies to find
+
+* XSS
+* Weak cypher
+* SQLi 1
+* SQLi 2
+* CSRF
+* LFI
+
+
 ## Credits
 Thanks for downloading this template!
 
