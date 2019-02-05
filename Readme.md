@@ -2,7 +2,12 @@
 
 ## Introduction
 
- //TODO
+Just would like to share a little work of me, a simple vulnerable website about simpson.
+All the website is in French, sorry for others but too lazy to translate it :P
+
+## How to setup
+
+Simply import noob.sql, change login to "root" and no password (Yes I love informatic security ;) )
 
 
 ## Vulnerabilies to find
