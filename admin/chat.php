@@ -1,11 +1,11 @@
 <?php
 session_start();
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=noob;charset=utf8', 'root', '');
-$reponse = $bdd->query('SELECT * FROM chat');
+$reponse = $bdd->query('SELECT * FROM chat ORDER BY id');
 ?>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="bootstrap.css" rel="stylesheet" id="bootstrap-css">
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <style type="text/css">
     .chatperson{
@@ -173,6 +173,9 @@ img {
     left:0px;
     bottom:0;
 }
+form {
+	display: block;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
@@ -236,3 +239,9 @@ img {
                  </div>
              </div>
 </div>
+<script type="text/javascript">
+	$(".row").on("click", "#btn-chat", function(){
+		var plop = $('#btn-input').val();
+		$.post( "send.php", { message: plop} );
+	});
+</script>

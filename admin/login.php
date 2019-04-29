@@ -57,7 +57,7 @@
         <form action="login_controller.php" method="post">
           <div class="form-group">
             <label for="exampleInputEmail1">Utilisateur</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nom.prenom" name="username">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="prenom" name="username">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Mot de passe</label>

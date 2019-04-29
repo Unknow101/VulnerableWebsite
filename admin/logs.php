@@ -39,6 +39,7 @@ if($_SESSION['username'] == "" || !isset($_SESSION['username'])){
         <a href="index.php" class="list-group-item list-group-item-action bg-light">Messagerie</a>
         <a href="logs.php" class="list-group-item list-group-item-action bg-light">Logs</a>
         <a href="membres.php" class="list-group-item list-group-item-action bg-light">Membres</a>
+        <a href="changepassword.php" class="list-group-item list-group-item-action bg-light">Réinitialiser mot de passe</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

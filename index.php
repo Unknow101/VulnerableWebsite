@@ -30,7 +30,7 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="index.php?page=acceuil.php">Acceuil</a></li>
+          <li class="active"><a href="index.php?page=accueil.php">Accueil</a></li>
           <li><a href="index.php?page=about.php">Équipe</a></li>
           <li><a href="index.php?page=services.php">Services</a></li>
           <li><a href="index.php?page=works.php">Travaux</a></li>
@@ -41,11 +41,12 @@
   </div>
 
   <?php
+  $pages= array('about.php','accueil.php','services.php','works.php','membres.php');
     if (isset($_GET['page'])){
       include($_GET['page']);
     }
     else{
-      include("acceuil.php");
+      include("accueil.php");
     }
     
   ?>

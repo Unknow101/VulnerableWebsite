@@ -3,6 +3,8 @@ session_start();
 if($_SESSION['username'] == "" || !isset($_SESSION['username'])){
   header('Location: login.php');
 }
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=noob;charset=utf8', 'root', '');
+$reponse = $bdd->query("SELECT * FROM users");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,17 +15,15 @@ if($_SESSION['username'] == "" || !isset($_SESSION['username'])){
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <style type="text/css">
-    iframe{
-      border: 0px;
-    }
-  </style>
 
   <title>NOOB - Admin panel</title>
-
+  <style type="text/css">
+    .log {
+      border: 1px solid black;
+    }
+  </style>
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
@@ -69,8 +69,27 @@ if($_SESSION['username'] == "" || !isset($_SESSION['username'])){
       </nav>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Messagerie instantanée</h1>
-        <iframe src="chat.php" width="100%" height="500px" id="chat"></iframe>
+        <h1 class="mt-4">Réinitialiser le mot de passe</h1><br>
+        <form action="initpass.php" method="post">
+          <select class="form-control form-control-lg" name="prenom">
+            <?php
+            while($data = $reponse->fetch()){
+              echo '<option value="'.$data['prenom'].'">'.$data['prenom']."</option>";
+            }
+            ?>
+          </select><br>
+          <button type="submit" class="btn btn-primary mb-2">Réinitialiser</button>
+        </form>
+        <small><i>Les mots de passes sont réinitialisés a Azert01</i></small><br>
+        <?php
+        if(isset($_GET['success']) && $_GET['success']==1){
+          ?>
+          <div class="alert alert-success" role="alert">
+            Le mot de passe a été réinitialisé
+          </div>
+          <?php
+        }
+        ?>
       </div>
     </div>
     <!-- /#page-content-wrapper -->
@@ -79,8 +98,8 @@ if($_SESSION['username'] == "" || !isset($_SESSION['username'])){
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>
@@ -88,7 +107,6 @@ if($_SESSION['username'] == "" || !isset($_SESSION['username'])){
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
-    $('#chat').scrollTop(0);
   </script>
 
 </body>

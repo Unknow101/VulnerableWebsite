@@ -29,7 +29,6 @@ $data = $reponse->fetch();
         <h4><?php echo "Prenom : " . $data['prenom']; ?></h4>
         <h4><?php echo "Nom : " . $data['nom']; ?></h4>
         <p><?php echo "Bio : " . $data['bio']; ?></p>
-        <p><a href="index.php?page=membres.php&id=1">@Homer</a></p>
       </div>
       <!-- col-lg-3 -->
 
